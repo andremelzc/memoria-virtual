@@ -19,8 +19,8 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a href="/contact" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
-              Contact
+            <a href="/about" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
+              About
             </a>
           </li>
         </ul>
