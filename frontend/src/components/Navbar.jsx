@@ -1,27 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
     <nav className="bg-light-bg border-b border-dark-border py-4 px-6 md:px-0">
       <div className="container mx-auto flex justify-between items-center max-w-6xl">
-        <a href="/" className="text-2xl font-bold text-accent no-underline">
+        <Link to="/" className="text-2xl font-bold text-accent no-underline">
           Simulador VM
-        </a>
+        </Link>
         <ul className="hidden md:flex list-none gap-8">
           <li>
-            <a href="/simulator" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
+            <Link to="/simulator" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
               Simulator
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/blog" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
+            <Link to="/blog" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
               Blog
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/about" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
-              About
-            </a>
+            <Link to="/about" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
+              About Us
+            </Link>
           </li>
         </ul>
       </div>
