@@ -17,7 +17,7 @@ function Hero() {
               El <span className="bg-accent-light text-accent px-2 py-1 rounded font-semibold">algoritmo de reemplazo</span> decide qué página será reemplazada.
             </p>
             <a 
-              href="#simulator" 
+              href="/simulator" 
               className="inline-block bg-accent text-white text-lg font-semibold no-underline py-3 px-8 rounded-lg shadow-lg transition-all
                          transform hover:bg-accent-hover hover:-translate-y-1"
             >
