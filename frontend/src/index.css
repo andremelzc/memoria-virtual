@@ -1,10 +1,19 @@
 @import "tailwindcss";
 
+/* Definir paleta de colores personalizada con @theme (Tailwind v4) */
+@theme {
+  --color-dark-bg: #121212;
+  --color-light-bg: #1E1E1E;
+  --color-dark-border: #333333;
+  --color-text-primary: #E0E0E0;
+  --color-text-secondary: #B3B3B3;
+  --color-accent: #00A896;
+  --color-accent-hover: #02C39A;
+  --color-accent-light: rgba(0, 168, 150, 0.1);
+}
+
 /* Reset mínimo para evitar franjas blancas del margen por defecto del body */
 @layer base {
 	html, body, #root { height: 100%; }
 	body { margin: 0; }
 }
-
-/* Puedes agregar estilos globales opcionales debajo */
-/* body { @apply bg-gray-50 text-gray-900; } */
