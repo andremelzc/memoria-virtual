@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { runSimulation } from '../api/simulatorApi'; // Importa tu función de API
+// 1. Importa 'useEffect'
+import React, { useState, useRef, useEffect } from 'react'; 
+import { runSimulation } from '../api/simulatorApi';
 import SimulationForm from '../components/SimulationForm';
 import SimulationResults from '../components/SimulationResults';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -9,36 +10,42 @@ function SimulatorPage() {
   const [results, setResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const resultsRef = useRef(null);
 
-  /**
-   * Esta función se pasa al SimulationForm y se activa
-   * cuando el usuario envía el formulario.
-   */
+  // 2. Añade este hook 'useEffect'
+  //    Se ejecutará CADA VEZ que el estado 'results' cambie.
+  useEffect(() => {
+    // Si 'results' NO es nulo (es decir, acabamos de recibir datos de la API)
+    // Y la referencia a la sección existe...
+    if (results && resultsRef.current) {
+      // ENTONCES, haz el scroll.
+      resultsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [results]); // <-- La dependencia [results] es la clave
+
   const handleSimulationSubmit = async (formData) => {
     setIsLoading(true);
     setError(null);
-    setResults(null);
+    setResults(null); // Esto limpia los resultados antiguos
 
-    // Transformar el payload para el backend
+
+    // Transformar el payload para el backend...
     const payload = {
-      algorithm: formData.algorithm, // ya está en minúsculas
+      algorithm: formData.algorithm,
       frames: formData.frames,
       pages: formData.sequence
         .split(' ')
         .map(x => parseInt(x.trim(), 10))
-        .filter(x => !isNaN(x)), // solo números válidos
+        .filter(x => !isNaN(x)),
     };
 
     try {
-      // Llama a la API
       const data = await runSimulation(payload);
-      // Guarda los resultados del backend en el estado
-      setResults(data);
+      // Cuando esto se ejecute, el 'useEffect' de arriba se disparará
+      setResults(data); 
     } catch (err) {
-      // Muestra el error
       setError(err.message || 'No se pudo conectar al servidor.');
     } finally {
-      // Detiene la carga
       setIsLoading(false);
     }
   };
@@ -47,7 +54,7 @@ function SimulatorPage() {
     <div className="bg-dark-bg text-text-primary min-h-screen py-16 px-6">
       <div className="container mx-auto">
         
-        {/* Título */}
+        {/* ... (Tu Título y Formulario no cambian) ... */}
         <h1 className="text-4xl md:text-5xl font-bold text-text-primary text-center mb-4">
           Simulador de Reemplazo de Páginas
         </h1>
@@ -56,15 +63,14 @@ function SimulatorPage() {
           el rendimiento de los algoritmos FIFO, LRU, Óptimo y MRU.
         </p>
 
-        {/* Formulario de Simulación */}
         <SimulationForm onSubmit={handleSimulationSubmit} isLoading={isLoading} />
 
-        {/* Área de Resultados */}
-        <div className="mt-12">
+        {/* Área de Resultados (El 'ref' sigue aquí, perfecto) */}
+        <section id="results" ref={resultsRef} className="mt-12">
           {isLoading && <LoadingSpinner />}
           <ErrorMessage message={error} />
           <SimulationResults data={results} />
-        </div>
+        </section>
 
       </div>
     </div>
