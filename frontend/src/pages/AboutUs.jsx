@@ -5,23 +5,28 @@ import LinkedInCard from "../components/LinkedInCard"; // Ajusta la ruta si es n
 const teamMembers = [
   {
     name: "Andre Melendez Cava",
-    linkedInUrl: "https://www.linkedin.com/in/example1",
+    linkedInUrl: "https://www.linkedin.com/in/andr%C3%A9-ivan-mel%C3%A9ndez-cava/",
+    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:example1",
   },
   {
     name: "Miguel Girón Altamirano",
     linkedInUrl: "https://www.linkedin.com/in/example2",
+    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:example2",
   },
   {
     name: "Andre Cuenca Echevarria",
-    linkedInUrl: "https://www.linkedin.com/in/example3",
+    linkedInUrl: "https://www.linkedin.com/in/andre-cuenca/",
+    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:example3",
   },
   {
     name: "Giancarlo Villavicencio Davila",
     linkedInUrl: "https://www.linkedin.com/in/example4",
+    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:example4",
   },
   {
     name: "Alejandro Padilla Arellano",
-    linkedInUrl: "https://www.linkedin.com/in/example5",
+    linkedInUrl: "https://www.linkedin.com/in/alejandro-padillaa/",
+    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:example5",
   },
 ];
 
@@ -39,26 +44,15 @@ function AboutUs() {
           cada integrante en LinkedIn.
         </p>
 
-        {/* Cuadrícula de Tarjetas - 3 arriba, 2 abajo centradas */}
-        <div className="max-w-5xl mx-auto">
-          {/* Primera fila: 3 tarjetas */}
-          <div className="flex justify-center gap-8 mb-8">
-            {teamMembers.slice(0, 3).map((member) => (
+        {/* Lista responsive de tarjetas */}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member) => (
               <LinkedInCard
                 key={member.name}
                 name={member.name}
                 linkedInUrl={member.linkedInUrl}
-              />
-            ))}
-          </div>
-
-          {/* Segunda fila: 2 tarjetas centradas */}
-          <div className="flex justify-center gap-8">
-            {teamMembers.slice(3, 5).map((member) => (
-              <LinkedInCard
-                key={member.name}
-                name={member.name}
-                linkedInUrl={member.linkedInUrl}
+                postUrl={member.postUrl}
               />
             ))}
           </div>

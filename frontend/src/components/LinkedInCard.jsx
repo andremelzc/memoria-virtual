@@ -12,7 +12,19 @@ const LinkedInIcon = () => (
   </svg>
 );
 
-function LinkedInCard({ name, linkedInUrl }) {
+const ExternalLinkIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="w-5 h-5"
+  >
+    <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z" />
+    <path d="M5 5h6v2H7v10h10v-4h2v6H5V5z" />
+  </svg>
+);
+
+function LinkedInCard({ name, linkedInUrl, postUrl }) {
   // Usamos un servicio de avatares para tener imágenes dinámicas y bonitas
   const avatarUrl = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(
     name
@@ -20,9 +32,9 @@ function LinkedInCard({ name, linkedInUrl }) {
 
   return (
     <div
-      className="bg-light-bg border border-dark-border rounded-xl p-8 w-64
-                    flex flex-col items-center text-center
-                    transition-all transform hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-black/30"
+      className="bg-light-bg border border-dark-border rounded-2xl p-8 w-full max-w-sm mx-auto
+                  flex flex-col items-center text-center gap-6
+                  transition-all transform hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-black/30"
     >
       {/* Avatar */}
       <img
@@ -32,21 +44,37 @@ function LinkedInCard({ name, linkedInUrl }) {
       />
 
       {/* Nombre de Referencia */}
-      <h3 className="text-2xl font-bold text-text-primary mb-6">{name}</h3>
+  <h3 className="text-2xl font-bold text-text-primary">{name}</h3>
 
-      {/* Botón de LinkedIn */}
-      <a
-        href={linkedInUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-auto w-full inline-flex items-center justify-center gap-2
-                   bg-accent text-white font-semibold no-underline 
-                   py-3 px-6 rounded-lg shadow-lg transition-all text-base
-                   transform hover:bg-accent-hover hover:scale-105"
-      >
-        <LinkedInIcon />
-        LinkedIn
-      </a>
+      {/* Botones de acción */}
+      <div className="mt-auto w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a
+          href={linkedInUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2
+                     bg-accent text-white font-semibold no-underline 
+                     py-3.5 px-5 rounded-lg shadow-lg transition-all text-[15px]
+                     transform hover:bg-accent-hover hover:scale-105"
+        >
+          <LinkedInIcon />
+          LinkedIn
+        </a>
+        {postUrl && (
+          <a
+            href={postUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2
+                       bg-dark-bg text-text-secondary border border-dark-border no-underline 
+                       py-3.5 px-5 rounded-lg transition-all text-[15px]
+                       hover:bg-dark-border hover:text-text-primary"
+          >
+            <ExternalLinkIcon />
+            Post
+          </a>
+        )}
+      </div>
     </div>
   );
 }
