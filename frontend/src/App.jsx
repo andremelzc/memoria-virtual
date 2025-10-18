@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Contact from './pages/Contact';
 
 export default function App() {
   return (
@@ -12,8 +13,7 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* Agrega más rutas aquí cuando las necesites */}
-            {/* <Route path="/about" element={<About />} /> */}
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
       </div>

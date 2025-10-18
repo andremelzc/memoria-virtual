@@ -9,22 +9,22 @@ function Navbar() {
         </a>
         <ul className="hidden md:flex list-none gap-8">
           <li>
-            <a href="#simulator" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
+            <a href="/simulator" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
               Simulator
             </a>
           </li>
           <li>
-            <a href="#blog" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
+            <a href="/blog" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
               Blog
             </a>
           </li>
           <li>
-            <a href="#about" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
+            <a href="/about" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
               About Us
             </a>
           </li>
           <li>
-            <a href="#contact" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
+            <a href="/contact" className="font-semibold text-text-secondary no-underline transition-colors hover:text-accent">
               Contact
             </a>
           </li>
