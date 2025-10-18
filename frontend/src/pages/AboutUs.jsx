@@ -25,7 +25,7 @@ const teamMembers = [
   },
 ];
 
-function Contact() {
+function AboutUs() {
   return (
     <div className="bg-dark-bg py-16 md:py-24 px-6 min-h-screen">
       <div className="container mx-auto max-w-7xl">
@@ -68,4 +68,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default AboutUs;
