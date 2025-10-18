@@ -16,11 +16,11 @@ const teamMembers = [
     linkedInUrl: "https://www.linkedin.com/in/example3",
   },
   {
-    name: "Giancarlo Villavicencio",
+    name: "Giancarlo Villavicencio Davila",
     linkedInUrl: "https://www.linkedin.com/in/example4",
   },
   {
-    name: "Alejandro Padilla",
+    name: "Alejandro Padilla Arellano",
     linkedInUrl: "https://www.linkedin.com/in/example5",
   },
 ];
