@@ -2,12 +2,14 @@ import time
 from backend.algorithms.fifo import fifo
 from backend.algorithms.lru import lru
 from backend.algorithms.optimal import optimal
+from backend.algorithms.mru import mru
 from backend.core.metrics import compute_metrics
 
 ALGORITHMS = {
     "FIFO": fifo,
     "LRU": lru,
-    "OPT": optimal
+    "OPT": optimal,
+    "MRU": mru
 }
 
 def run_simulation(pages, frames, algorithm_name):
