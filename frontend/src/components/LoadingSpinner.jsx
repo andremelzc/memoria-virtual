@@ -1,0 +1,12 @@
+import React from 'react';
+
+// Un spinner simple hecho con Tailwind
+function LoadingSpinner() {
+  return (
+    <div className="flex justify-center items-center py-10">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent"></div>
+    </div>
+  );
+}
+
+export default LoadingSpinner;
