@@ -33,7 +33,7 @@ function SimulationResults({ data }) {
   const frameCount = steps[0]?.frames.length || 0;
 
     return (
-      <div className="max-w-4xl mx-auto mt-12 space-y-8">
+  <div className="max-w-4xl mx-auto mt-8 space-y-8">
         {/* 1. Resumen de Métricas */}
         <h2 className="text-3xl font-bold text-text-primary text-center">Resumen de Métricas</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
