@@ -1,9 +1,10 @@
 from .simulate import simulate_detailed
 
-def lru(pages, frames, detailed=False):
+def mru(pages, frames, detailed=False):
     """
-    Algoritmo LRU (Least Recently Used).
-    Reemplaza la página que no se ha usado durante más tiempo.
+    Algoritmo MRU (Most Recently Used).
+    Reemplaza la página que se usó más recientemente.
+    Es el opuesto a LRU y útil en ciertos patrones de acceso.
     
     Args:
         pages: Lista de referencias a páginas.
@@ -16,13 +17,13 @@ def lru(pages, frames, detailed=False):
         dict: {"metrics": {...}, "steps": [...]} (si detailed=True)
     
     Examples:
-        >>> lru([1, 2, 3, 1, 2, 4], 3)
-        4
-        >>> result = lru([1, 2, 3, 1], 2, detailed=True)
+        >>> mru([1, 2, 3, 1, 2, 4], 3)
+        5
+        >>> result = mru([1, 2, 3, 1], 2, detailed=True)
         >>> result["metrics"]["faults"]
         3
     """
-    result = simulate_detailed("lru", pages, frames)
+    result = simulate_detailed("mru", pages, frames)
     if detailed:
         return result
     return result["metrics"]["faults"]
