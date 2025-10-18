@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.mypy_cache
+.coverage
+htmlcov
+.cache
+.venv
+__pypackages__/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
