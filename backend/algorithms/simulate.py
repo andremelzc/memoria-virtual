@@ -66,11 +66,21 @@ def simulate_detailed(algorithm: str, pages: List[int], frames: int) -> Dict[str
         steps.append({"page": page, "frames": list(frames_state), "result": result})
 
     total_requests = len(pages)
+    
+    # Calcular uso de marcos (simulado) a partir del estado final de frames_state
+    #lo de aca tambien es nuevo, calcula memoria utilizada
+    frames_used = sum(1 for frame in frames_state if frame != -1)
+    total_frames = frames
+    
     metrics = {
         "total_requests": total_requests,
         "hits": hits,
         "faults": faults,
         "fault_rate": (faults / total_requests) if total_requests > 0 else 0.0,
+        #aca nuevas metricas, aunque solo se uasata el de memoria utilziada
+        "frames_used": frames_used,    # marcos ocupados al final de la simulación
+        "total_frames": total_frames,  # total de marcos disponibles
+        "memory_utilization": frames_used / total_frames if total_frames > 0 else 0.0
     }
 
     return {"metrics": metrics, "steps": steps}
