@@ -70,9 +70,9 @@ print("✅ CSV generado: resultados_memoria_pequena.csv")
 # ==========================================================
 # 🔹 Subescenario 2: Memoria MEDIA
 # ==========================================================
-df_medium_a = run_experiment(n_pages=30, n_accesses=500, frames=6,  loop_size=6)
-df_medium_b = run_experiment(n_pages=30, n_accesses=500, frames=8,  loop_size=6)
-df_medium_c = run_experiment(n_pages=30, n_accesses=500, frames=10, loop_size=6)
+df_medium_a = run_experiment(n_pages=30, n_accesses=500, frames=4,  loop_size=6)
+df_medium_b = run_experiment(n_pages=30, n_accesses=500, frames=6,  loop_size=6)
+df_medium_c = run_experiment(n_pages=30, n_accesses=500, frames=8, loop_size=6)
 df_medium = pd.concat([df_medium_a, df_medium_b, df_medium_c], ignore_index=True)
 df_medium.to_csv("resultados_memoria_media.csv", index=False)
 print("✅ CSV generado: resultados_memoria_media.csv")
@@ -80,9 +80,9 @@ print("✅ CSV generado: resultados_memoria_media.csv")
 # ==========================================================
 # 🔹 Subescenario 3: Memoria GRANDE
 # ==========================================================
-df_large_a = run_experiment(n_pages=30, n_accesses=500, frames=20, loop_size=6)
-df_large_b = run_experiment(n_pages=30, n_accesses=500, frames=30, loop_size=6)
-df_large_c = run_experiment(n_pages=30, n_accesses=500, frames=40, loop_size=6)
+df_large_a = run_experiment(n_pages=30, n_accesses=500, frames=8, loop_size=6)
+df_large_b = run_experiment(n_pages=30, n_accesses=500, frames=11, loop_size=6)
+df_large_c = run_experiment(n_pages=30, n_accesses=500, frames=14, loop_size=6)
 df_large = pd.concat([df_large_a, df_large_b, df_large_c], ignore_index=True)
 df_large.to_csv("resultados_memoria_grande.csv", index=False)
 print("✅ CSV generado: resultados_memoria_grande.csv")
@@ -92,7 +92,7 @@ print("✅ CSV generado: resultados_memoria_grande.csv")
 #     - Mismo patrón, dos tamaños de memoria bien distintos.
 # ==========================================================
 df_cmp_small = run_experiment(n_pages=30, n_accesses=500, frames=3,  loop_size=6)
-df_cmp_large = run_experiment(n_pages=30, n_accesses=500, frames=35, loop_size=6)
+df_cmp_large = run_experiment(n_pages=30, n_accesses=500, frames=15, loop_size=6)
 df_compare = pd.concat([df_cmp_small, df_cmp_large], ignore_index=True)
 df_compare.to_csv("resultados_memoria_comparacion.csv", index=False)
 print("✅ CSV generado: resultados_memoria_comparacion.csv")
