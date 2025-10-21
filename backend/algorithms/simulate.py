@@ -82,5 +82,7 @@ def simulate_detailed(algorithm: str, pages: List[int], frames: int) -> Dict[str
         "total_frames": total_frames,  # total de marcos disponibles
         "memory_utilization": frames_used / total_frames if total_frames > 0 else 0.0
     }
+    
+    print(f"[DEBUG simulate_detailed] frames_used={frames_used}, total_frames={total_frames}, utilization={frames_used/total_frames*100:.2f}%")
 
     return {"metrics": metrics, "steps": steps}

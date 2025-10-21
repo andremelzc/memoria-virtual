@@ -1,4 +1,5 @@
-def compute_metrics(total_accesses, page_faults, exec_time, algorithm,frames_used=None, total_frames=None):
+def compute_metrics(total_accesses, page_faults, exec_time, algorithm,frames_used=None, total_frames=None, precision=None):
+    print(f"[DEBUG compute_metrics] frames_used={frames_used}, total_frames={total_frames}")
     # Hit/Miss ratio
     hits = total_accesses - page_faults #se resta total de accesps menos fallos de pagina
     hit_ratio = hits / total_accesses #porcentaje de aciertos respecto al total de accesos
@@ -22,18 +23,20 @@ def compute_metrics(total_accesses, page_faults, exec_time, algorithm,frames_use
     # Memoria utilizada (porcentaje)
     memory_utilization = (frames_used / total_frames * 100) if frames_used is not None and total_frames and total_frames > 0 else 0
 
+    def _maybe_round(v):
+        return round(v, precision) if (precision is not None and isinstance(v, (int, float))) else v
 
 
     return {
         "algorithm": algorithm,
         "total_accesses": total_accesses,
         "page_faults": page_faults,
-        "hit_ratio": round(hit_ratio, 4),
-        "miss_ratio": round(miss_ratio, 4),
-        "exec_time_s": round(exec_time, 6),
-        "throughput": round(throughput, 2),
-        "cpu_usage": round(cpu_usage * 100, 2),  # %
-        "avg_access_time_s": round(avg_acces_time, 8),
-        "memory_utilization": round(memory_utilization, 2),  # porcentaje de memoria usado
-        "fairness": fairness
+        "hit_ratio": _maybe_round(hit_ratio),
+        "miss_ratio": _maybe_round(miss_ratio),
+        "exec_time_s": _maybe_round(float(exec_time)),
+        "throughput": _maybe_round(throughput),
+        "cpu_usage": _maybe_round(cpu_usage * 100),  # % value
+        "avg_access_time_s": _maybe_round(avg_acces_time),
+        "memory_utilization": _maybe_round(memory_utilization),  # porcentaje
+        "fairness": 1.0
     }

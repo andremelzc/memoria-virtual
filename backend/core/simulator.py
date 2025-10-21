@@ -36,6 +36,7 @@ def run_simulation(pages, frames, algorithm_name):
 
     end = time.perf_counter()
     elapsed = end - start  # segundos
+    print(f"[DEBUG run_simulation] algo={algorithm_name}, frames_used={frames_used}, total_frames={frames}, detailed={bool(detailed)}")
 
     metrics = compute_metrics(
         total_accesses=len(pages),
@@ -50,5 +51,8 @@ def run_simulation(pages, frames, algorithm_name):
     if isinstance(detailed, dict):
         metrics["raw_metrics"] = detailed.get("metrics")
         metrics["steps"] = detailed.get("steps")
+        
+    if "frames_used" not in metrics and isinstance(detailed, dict):
+        metrics["frames_used"] = detailed.get("metrics", {}).get("frames_used", None)
 
     return metrics

@@ -63,6 +63,6 @@ def get_policy(name: str) -> PolicyFn:
         return policy_lru
     if name == "mru":
         return policy_mru
-    if name == "optimal":
+    if name in ("optimal","opt"):
         return policy_optimal
     raise ValueError(f"Unknown algorithm policy: {name}")
