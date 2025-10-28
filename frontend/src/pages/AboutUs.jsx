@@ -6,7 +6,7 @@ const teamMembers = [
   {
     name: "Andre Melendez Cava",
     linkedInUrl: "https://www.linkedin.com/in/andr%C3%A9-ivan-mel%C3%A9ndez-cava/",
-    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:example1",
+    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7389076808664530944/",
   },
   {
     name: "Miguel Girón Altamirano",
