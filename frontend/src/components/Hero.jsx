@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Hero() {
   return (
@@ -16,19 +17,19 @@ function Hero() {
               Si todos los marcos ya están ocupados, se debe reemplazar una página.
               El <span className="bg-accent-light text-accent px-2 py-1 rounded font-semibold">algoritmo de reemplazo</span> decide qué página será reemplazada.
             </p>
-            <a 
-              href="/simulator" 
+            <Link 
+              to="/simulator" 
               className="inline-block bg-accent text-white text-lg font-semibold no-underline py-3 px-8 rounded-lg shadow-lg transition-all
                          transform hover:bg-accent-hover hover:-translate-y-1"
             >
               Ir al Simulador →
-            </a>
+            </Link>
           </div>
 
           {/* Imagen */}
           <div className="flex-1 max-w-lg mt-8 md:mt-0">
             <img 
-              src="https://i.imgur.com/GkG8Hq3.png" 
+              src="/virtual_memory.png" 
               alt="Diagrama de Memoria Virtual" 
               className="w-full h-auto rounded-xl border border-dark-border shadow-xl"
             />

@@ -10,7 +10,7 @@ const teamMembers = [
   },
   {
     name: "Miguel Girón Altamirano",
-    linkedInUrl: "https://www.linkedin.com/in/example2",
+    linkedInUrl: "https://www.linkedin.com/in/miguel-giron-altamirano-1173b825b/",
     postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:example2",
   },
   {
