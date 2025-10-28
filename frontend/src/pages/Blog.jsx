@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BlogCard from '../components/BlogCard';
 
 // Datos de los artículos del blog
@@ -38,24 +39,6 @@ const blogPosts = [
     date: "18 Oct 2024",
     slug: "algoritmo-optimo",
     category: "Algoritmos"
-  },
-  {
-    id: 5,
-    title: "Page Faults y Rendimiento del Sistema",
-    excerpt: "Los page faults son eventos críticos en la gestión de memoria virtual. Analiza cómo afectan el rendimiento del sistema, estrategias de optimización y métricas importantes para evaluar algoritmos.",
-    readTime: 9,
-    date: "18 Oct 2024",
-    slug: "page-faults-rendimiento",
-    category: "Rendimiento"
-  },
-  {
-    id: 6,
-    title: "Comparación de Algoritmos de Reemplazo",
-    excerpt: "Un análisis detallado que compara FIFO, LRU y Optimal en diferentes escenarios. Incluye ejemplos prácticos, casos de uso y recomendaciones para elegir el algoritmo adecuado.",
-    readTime: 10,
-    date: "18 Oct 2024",
-    slug: "comparacion-algoritmos",
-    category: "Análisis"
   }
 ];
 
@@ -94,8 +77,8 @@ function Blog() {
           </button>
         </div> */}
 
-        {/* Grid de Artículos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Grid de Artículos - Diseño optimizado para 4 artículos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {blogPosts.map((post) => (
             <BlogCard
               key={post.id}
@@ -108,21 +91,23 @@ function Blog() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16 p-8 bg-light-bg border border-dark-border rounded-lg">
-          <h3 className="text-2xl font-bold text-text-primary mb-4">
-            ¿Listo para poner en práctica lo aprendido?
-          </h3>
-          <p className="text-text-secondary mb-6">
-            Utiliza nuestro simulador interactivo para experimentar con los algoritmos 
-            de reemplazo de páginas y ver cómo se comportan en diferentes escenarios.
-          </p>
-          <a 
-            href="/simulator"
-            className="inline-block bg-accent text-white text-lg font-semibold no-underline py-3 px-8 rounded-lg shadow-lg transition-all
-                       transform hover:bg-accent-hover hover:-translate-y-1"
-          >
-            Ir al Simulador →
-          </a>
+        <div className="flex justify-center mt-16">
+          <div className="max-w-2xl w-full text-center p-8 bg-light-bg border border-dark-border rounded-lg">
+            <h3 className="text-2xl font-bold text-text-primary mb-4">
+              ¿Listo para poner en práctica lo aprendido?
+            </h3>
+            <p className="text-text-secondary mb-6">
+              Utiliza nuestro simulador interactivo para experimentar con los algoritmos 
+              de reemplazo de páginas y ver cómo se comportan en diferentes escenarios.
+            </p>
+            <Link 
+              to="/simulator"
+              className="inline-block bg-accent text-white text-lg font-semibold no-underline py-3 px-8 rounded-lg shadow-lg transition-all
+                         transform hover:bg-accent-hover hover:-translate-y-1"
+            >
+              Ir al Simulador →
+            </Link>
+          </div>
         </div>
       </div>
     </div>
