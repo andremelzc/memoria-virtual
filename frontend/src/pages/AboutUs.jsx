@@ -11,7 +11,7 @@ const teamMembers = [
   {
     name: "Miguel Girón Altamirano",
     linkedInUrl: "https://www.linkedin.com/in/miguel-giron-altamirano-1173b825b/",
-    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:example2",
+    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7389165977739055104/",
   },
   {
     name: "Andre Cuenca Echevarria",
