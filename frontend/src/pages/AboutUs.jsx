@@ -26,7 +26,7 @@ const teamMembers = [
   {
     name: "Alejandro Padilla Arellano",
     linkedInUrl: "https://www.linkedin.com/in/alejandro-padillaa/",
-    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:example5",
+    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7389108604689141760/",
   },
 ];
 
