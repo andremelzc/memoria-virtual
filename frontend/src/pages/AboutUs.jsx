@@ -16,7 +16,7 @@ const teamMembers = [
   {
     name: "Andre Cuenca Echevarria",
     linkedInUrl: "https://www.linkedin.com/in/andre-cuenca/",
-    postUrl: "https://www.linkedin.com/feed/update/urn:li:activity:example3",
+    postUrl: "https://www.linkedin.com/posts/andre-cuenca_sistemasoperativos-unmsm-memoriavirtual-activity-7389171033582247936-zFWN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFouKpsBGwDZAVB9Hg5RHARQDMnXwXduQ2k",
   },
   {
     name: "Giancarlo Villavicencio Davila",
